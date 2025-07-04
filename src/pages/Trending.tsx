@@ -1,17 +1,16 @@
 
 import Layout from '@/components/Layout';
-import CategoryTabs from '@/components/CategoryTabs';
 import VideoGrid from '@/components/VideoGrid';
 
-const Index = () => {
+const Trending = () => {
   return (
     <Layout>
-      <CategoryTabs />
       <div className="p-6">
+        <h1 className="text-white text-2xl font-bold mb-6">Trending</h1>
         <VideoGrid />
       </div>
     </Layout>
   );
 };
 
-export default Index;
+export default Trending;

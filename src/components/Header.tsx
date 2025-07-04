@@ -2,6 +2,7 @@
 import { Search, Bell, User, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -21,12 +22,12 @@ const Header = ({ onMenuClick }: HeaderProps) => {
           >
             <Menu className="h-5 w-5" />
           </Button>
-          <div className="flex items-center gap-1">
+          <Link to="/" className="flex items-center gap-1">
             <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center">
               <span className="text-white font-bold text-sm">YT</span>
             </div>
             <span className="text-white text-xl font-semibold">YouTube</span>
-          </div>
+          </Link>
         </div>
 
         {/* Center search */}
@@ -49,9 +50,11 @@ const Header = ({ onMenuClick }: HeaderProps) => {
           <Button variant="ghost" size="sm" className="text-white hover:bg-gray-800">
             <Bell className="h-5 w-5" />
           </Button>
-          <Button variant="ghost" size="sm" className="text-white hover:bg-gray-800">
-            <User className="h-5 w-5" />
-          </Button>
+          <Link to="/profile">
+            <Button variant="ghost" size="sm" className="text-white hover:bg-gray-800">
+              <User className="h-5 w-5" />
+            </Button>
+          </Link>
         </div>
       </div>
     </header>

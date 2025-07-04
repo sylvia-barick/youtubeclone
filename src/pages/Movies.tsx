@@ -1,17 +1,16 @@
 
 import Layout from '@/components/Layout';
-import CategoryTabs from '@/components/CategoryTabs';
 import VideoGrid from '@/components/VideoGrid';
 
-const Index = () => {
+const Movies = () => {
   return (
     <Layout>
-      <CategoryTabs />
       <div className="p-6">
-        <VideoGrid />
+        <h1 className="text-white text-2xl font-bold mb-6">Movies</h1>
+        <VideoGrid category="movies" />
       </div>
     </Layout>
   );
 };
 
-export default Index;
+export default Movies;

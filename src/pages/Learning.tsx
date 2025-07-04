@@ -1,17 +1,16 @@
 
 import Layout from '@/components/Layout';
-import CategoryTabs from '@/components/CategoryTabs';
 import VideoGrid from '@/components/VideoGrid';
 
-const Index = () => {
+const Learning = () => {
   return (
     <Layout>
-      <CategoryTabs />
       <div className="p-6">
-        <VideoGrid />
+        <h1 className="text-white text-2xl font-bold mb-6">Learning</h1>
+        <VideoGrid category="learning" />
       </div>
     </Layout>
   );
 };
 
-export default Index;
+export default Learning;

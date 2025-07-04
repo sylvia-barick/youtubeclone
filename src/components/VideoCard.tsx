@@ -11,12 +11,19 @@ interface VideoCardProps {
     views: string;
     timestamp: string;
     duration: string;
+    youtubeId?: string;
   };
 }
 
 const VideoCard = ({ video }: VideoCardProps) => {
+  const handleVideoClick = () => {
+    if (video.youtubeId) {
+      window.open(`https://www.youtube.com/watch?v=${video.youtubeId}`, '_blank');
+    }
+  };
+
   return (
-    <div className="group cursor-pointer">
+    <div className="group cursor-pointer" onClick={handleVideoClick}>
       {/* Thumbnail */}
       <div className="relative aspect-video bg-gray-800 rounded-lg overflow-hidden mb-3">
         <img
@@ -51,6 +58,7 @@ const VideoCard = ({ video }: VideoCardProps) => {
           variant="ghost"
           size="sm"
           className="text-gray-400 hover:text-white hover:bg-gray-800 opacity-0 group-hover:opacity-100 transition-opacity"
+          onClick={(e) => e.stopPropagation()}
         >
           <MoreVertical className="h-4 w-4" />
         </Button>

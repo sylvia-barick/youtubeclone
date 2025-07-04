@@ -2,21 +2,24 @@
 import { Home, TrendingUp, Music, Film, Gamepad2, Newspaper, Trophy, Lightbulb, Settings, Flag, HelpCircle, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { Link, useLocation } from 'react-router-dom';
 
 interface SidebarProps {
   isOpen: boolean;
 }
 
 const Sidebar = ({ isOpen }: SidebarProps) => {
+  const location = useLocation();
+
   const mainItems = [
-    { icon: Home, label: 'Home', active: true },
-    { icon: TrendingUp, label: 'Trending' },
-    { icon: Music, label: 'Music' },
-    { icon: Film, label: 'Movies' },
-    { icon: Gamepad2, label: 'Gaming' },
-    { icon: Newspaper, label: 'News' },
-    { icon: Trophy, label: 'Sports' },
-    { icon: Lightbulb, label: 'Learning' },
+    { icon: Home, label: 'Home', path: '/' },
+    { icon: TrendingUp, label: 'Trending', path: '/trending' },
+    { icon: Music, label: 'Music', path: '/music' },
+    { icon: Film, label: 'Movies', path: '/movies' },
+    { icon: Gamepad2, label: 'Gaming', path: '/gaming' },
+    { icon: Newspaper, label: 'News', path: '/news' },
+    { icon: Trophy, label: 'Sports', path: '/sports' },
+    { icon: Lightbulb, label: 'Learning', path: '/learning' },
   ];
 
   const bottomItems = [
@@ -35,16 +38,17 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
         <div className="flex-1">
           <nav className="space-y-1 px-2">
             {mainItems.map((item) => (
-              <Button
-                key={item.label}
-                variant="ghost"
-                className={`w-full justify-start text-white hover:bg-gray-800 ${
-                  item.active ? 'bg-gray-800' : ''
-                } ${!isOpen ? 'px-2' : 'px-4'}`}
-              >
-                <item.icon className="h-5 w-5 flex-shrink-0" />
-                {isOpen && <span className="ml-4">{item.label}</span>}
-              </Button>
+              <Link key={item.label} to={item.path}>
+                <Button
+                  variant="ghost"
+                  className={`w-full justify-start text-white hover:bg-gray-800 ${
+                    location.pathname === item.path ? 'bg-gray-800' : ''
+                  } ${!isOpen ? 'px-2' : 'px-4'}`}
+                >
+                  <item.icon className="h-5 w-5 flex-shrink-0" />
+                  {isOpen && <span className="ml-4">{item.label}</span>}
+                </Button>
+              </Link>
             ))}
           </nav>
         </div>
