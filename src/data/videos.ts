@@ -404,9 +404,9 @@ export const allVideos = [
 
 export const getVideosByCategory = (category: string) => {
   if (category === 'all') return allVideos;
-  if (category === 'fashion') return [...fashionVideos, ...allVideos.filter(v => v.category === 'fashion')];
-  if (category === 'podcasts') return [...podcastVideos, ...allVideos.filter(v => v.category === 'podcasts')];
-  if (category === 'live') return [...liveVideos, ...allVideos.filter(v => v.category === 'live')];
+  if (category === 'fashion') return allVideos.filter(v => v.category === 'fashion');
+  if (category === 'podcasts') return allVideos.filter(v => v.category === 'podcasts');
+  if (category === 'live') return allVideos.filter(v => v.category === 'live');
   if (category === 'new') return allVideos.slice(0, 20);
   if (category === 'watched') return allVideos.slice(5, 25);
   return allVideos.filter(video => video.category === category);
