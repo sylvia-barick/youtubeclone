@@ -35,7 +35,7 @@ const Profile = () => {
       id: 'user3',
       title: 'Daily Vlog: A Day in My Life as a Developer',
       thumbnail: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=640&h=360&fit=crop',
-      channel: 'John Doe',
+      channel: 'Sylvia Barick',
       views: '2.1K views',
       timestamp: '2 weeks ago',
       duration: '12:45',
@@ -94,11 +94,18 @@ const Profile = () => {
     <Layout>
       <div className="p-6">
         {/* Profile Banner */}
-        <div className="relative bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg h-48 mb-6">
+        <div 
+          className="relative bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg h-48 mb-6"
+          style={{ 
+            backgroundImage: 'url(https://i.postimg.cc/XY5YhBTz/a1.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
           <div className="absolute inset-0 bg-black bg-opacity-30 rounded-lg"></div>
           <Button 
             onClick={handleCustomizeChannel}
-            className="absolute top-4 right-4 bg-black bg-opacity-50 hover:bg-opacity-70"
+            className="absolute top-4 right-4 bg-black text-white hover:bg-gray-900"
           >
             <Edit className="h-4 w-4 mr-2" />
             Customize channel
@@ -107,12 +114,16 @@ const Profile = () => {
 
         {/* Profile Header */}
         <div className="flex items-start gap-6 mb-8">
-          <div className="w-32 h-32 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center border-4 border-gray-700">
-            <User className="text-white text-4xl" size={64} />
+          <div className="w-32 h-32 rounded-full flex items-center justify-center border-4 border-gray-700 overflow-hidden">
+            <img 
+              src="https://i.postimg.cc/zB7B7m9D/Whats-App-Image-2025-07-01-at-15-49-06.jpg" 
+              alt="Sylvia Barick" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="flex-1">
             <div className="flex items-center gap-4 mb-2">
-              <h1 className="text-white text-4xl font-bold">John Doe</h1>
+              <h1 className="text-white text-4xl font-bold">Sylvia Barick</h1>
               <Button 
                 size="sm" 
                 variant="outline" 
@@ -124,7 +135,7 @@ const Profile = () => {
               </Button>
             </div>
             <div className="flex items-center gap-4 text-gray-400 mb-3">
-              <span>@johndoe</span>
+              <span>@sylvia</span>
               <span>•</span>
               <span>2.5K subscribers</span>
               <span>•</span>
