@@ -13,6 +13,10 @@ import News from "./pages/News";
 import Sports from "./pages/Sports";
 import Learning from "./pages/Learning";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import History from "./pages/History";
+import Help from "./pages/Help";
+import Feedback from "./pages/Feedback";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +37,11 @@ const App = () => (
           <Route path="/sports" element={<Sports />} />
           <Route path="/learning" element={<Learning />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/history" element={<History />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/report" element={<Help />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

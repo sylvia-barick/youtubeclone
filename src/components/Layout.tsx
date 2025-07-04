@@ -5,9 +5,10 @@ import Sidebar from '@/components/Sidebar';
 
 interface LayoutProps {
   children: React.ReactNode;
+  onSearch?: (query: string) => void;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, onSearch }: LayoutProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -16,7 +17,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      <Header onMenuClick={toggleSidebar} />
+      <Header onMenuClick={toggleSidebar} onSearch={onSearch} />
       <Sidebar isOpen={sidebarOpen} />
       
       <main className={`transition-all duration-300 ${

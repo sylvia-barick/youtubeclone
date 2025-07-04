@@ -1,5 +1,5 @@
 
-import { Home, TrendingUp, Music, Film, Gamepad2, Newspaper, Trophy, Lightbulb, Settings, Flag, HelpCircle, MessageSquare } from 'lucide-react';
+import { Home, TrendingUp, Music, Film, Gamepad2, Newspaper, Trophy, Lightbulb, Settings, Flag, HelpCircle, MessageSquare, History } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Link, useLocation } from 'react-router-dom';
@@ -23,10 +23,11 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
   ];
 
   const bottomItems = [
-    { icon: Settings, label: 'Settings' },
-    { icon: Flag, label: 'Report history' },
-    { icon: HelpCircle, label: 'Help' },
-    { icon: MessageSquare, label: 'Send feedback' },
+    { icon: Settings, label: 'Settings', path: '/settings' },
+    { icon: History, label: 'History', path: '/history' },
+    { icon: HelpCircle, label: 'Help', path: '/help' },
+    { icon: MessageSquare, label: 'Feedback', path: '/feedback' },
+    { icon: Flag, label: 'Report', path: '/report' },
   ];
 
   return (
@@ -59,14 +60,17 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
             <Separator className="bg-gray-700 mx-4" />
             <nav className="space-y-1 px-2 pt-4">
               {bottomItems.map((item) => (
-                <Button
-                  key={item.label}
-                  variant="ghost"
-                  className="w-full justify-start text-white hover:bg-gray-800 px-4"
-                >
-                  <item.icon className="h-5 w-5 flex-shrink-0" />
-                  <span className="ml-4">{item.label}</span>
-                </Button>
+                <Link key={item.label} to={item.path}>
+                  <Button
+                    variant="ghost"
+                    className={`w-full justify-start text-white hover:bg-gray-800 px-4 ${
+                      location.pathname === item.path ? 'bg-gray-800' : ''
+                    }`}
+                  >
+                    <item.icon className="h-5 w-5 flex-shrink-0" />
+                    <span className="ml-4">{item.label}</span>
+                  </Button>
+                </Link>
               ))}
             </nav>
           </>
