@@ -1,4 +1,3 @@
-
 export const allVideos = [
   // Music Videos
   {
@@ -328,11 +327,88 @@ export const allVideos = [
     duration: '16:42',
     youtubeId: 'dQw4w9WgXcQ',
     category: 'trending'
+  },
+
+  // Fashion Videos
+  {
+    id: 'fashion1',
+    title: 'Fashion Week 2024 Highlights',
+    thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=640&h=360&fit=crop',
+    channel: 'Fashion Central',
+    views: '2.1M views',
+    timestamp: '3 days ago',
+    duration: '15:42',
+    youtubeId: 'dQw4w9WgXcQ',
+    category: 'fashion'
+  },
+  {
+    id: 'fashion2',
+    title: 'Street Style Fashion Trends',
+    thumbnail: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=640&h=360&fit=crop',
+    channel: 'Style Guru',
+    views: '850K views',
+    timestamp: '1 week ago',
+    duration: '12:30',
+    youtubeId: 'dQw4w9WgXcQ',
+    category: 'fashion'
+  },
+
+  // Podcast Videos
+  {
+    id: 'podcast1',
+    title: 'The Future of Technology - Tech Talk Podcast',
+    thumbnail: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=640&h=360&fit=crop',
+    channel: 'Tech Talks',
+    views: '1.2M views',
+    timestamp: '2 days ago',
+    duration: '45:20',
+    youtubeId: 'dQw4w9WgXcQ',
+    category: 'podcasts'
+  },
+  {
+    id: 'podcast2',
+    title: 'Business Success Stories Podcast',
+    thumbnail: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=640&h=360&fit=crop',
+    channel: 'Business Insights',
+    views: '900K views',
+    timestamp: '4 days ago',
+    duration: '38:15',
+    youtubeId: 'dQw4w9WgXcQ',
+    category: 'podcasts'
+  },
+
+  // Live Videos
+  {
+    id: 'live1',
+    title: 'LIVE: Breaking News Coverage',
+    thumbnail: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=640&h=360&fit=crop',
+    channel: 'News Live',
+    views: '125K watching',
+    timestamp: 'Live now',
+    duration: 'LIVE',
+    youtubeId: 'dQw4w9WgXcQ',
+    category: 'live'
+  },
+  {
+    id: 'live2',
+    title: 'LIVE: Gaming Tournament Stream',
+    thumbnail: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=640&h=360&fit=crop',
+    channel: 'Gaming Live',
+    views: '45K watching',
+    timestamp: 'Live now',
+    duration: 'LIVE',
+    youtubeId: 'dQw4w9WgXcQ',
+    category: 'live'
   }
 ];
 
 export const getVideosByCategory = (category: string) => {
   if (category === 'all') return allVideos;
+  if (category === 'fashion') return [...fashionVideos, ...allVideos.filter(v => v.category === 'fashion')];
+  if (category === 'podcasts') return [...podcastVideos, ...allVideos.filter(v => v.category === 'podcasts')];
+  if (category === 'live') return [...liveVideos, ...allVideos.filter(v => v.category === 'live')];
+  if (category === 'new') return allVideos.slice(0, 20);
+  if (category === 'watched') return allVideos.slice(5, 25);
   return allVideos.filter(video => video.category === category);
 };
 

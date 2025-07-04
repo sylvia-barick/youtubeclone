@@ -12,6 +12,9 @@ import Gaming from "./pages/Gaming";
 import News from "./pages/News";
 import Sports from "./pages/Sports";
 import Learning from "./pages/Learning";
+import Fashion from "./pages/Fashion";
+import Podcasts from "./pages/Podcasts";
+import Live from "./pages/Live";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import History from "./pages/History";
@@ -36,6 +39,9 @@ const App = () => (
           <Route path="/news" element={<News />} />
           <Route path="/sports" element={<Sports />} />
           <Route path="/learning" element={<Learning />} />
+          <Route path="/fashion" element={<Fashion />} />
+          <Route path="/podcasts" element={<Podcasts />} />
+          <Route path="/live" element={<Live />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/history" element={<History />} />

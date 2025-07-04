@@ -1,11 +1,13 @@
-
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import VideoGrid from '@/components/VideoGrid';
-import { Settings, Bell, Shield, HelpCircle, Share, Edit } from 'lucide-react';
+import { Settings, Bell, Shield, HelpCircle, Share, Edit, User, Search, Trash2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
+  const navigate = useNavigate();
+
   const userVideos = [
     {
       id: 'user1',
@@ -42,13 +44,62 @@ const Profile = () => {
     }
   ];
 
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'John Doe - YouTube Channel',
+        url: window.location.href,
+      });
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert('Channel link copied to clipboard!');
+    }
+  };
+
+  const handleCustomizeChannel = () => {
+    navigate('/settings');
+  };
+
+  const handleSubscribe = () => {
+    alert('Subscribed to John Doe!');
+  };
+
+  const handleJoin = () => {
+    alert('Joined the channel membership!');
+  };
+
+  const handleSearchHistory = () => {
+    navigate('/history');
+  };
+
+  const handleClearHistory = () => {
+    if (confirm('Are you sure you want to clear all watch history?')) {
+      alert('Watch history cleared!');
+    }
+  };
+
+  const handleCreatePlaylist = () => {
+    alert('Create Playlist feature coming soon!');
+  };
+
+  const handleCreatePost = () => {
+    alert('Create Community Post feature coming soon!');
+  };
+
+  const handleSortBy = () => {
+    alert('Sort options: Date added (newest), Date added (oldest), Most popular, Date published (newest)');
+  };
+
   return (
     <Layout>
       <div className="p-6">
         {/* Profile Banner */}
         <div className="relative bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg h-48 mb-6">
           <div className="absolute inset-0 bg-black bg-opacity-30 rounded-lg"></div>
-          <Button className="absolute top-4 right-4 bg-black bg-opacity-50 hover:bg-opacity-70">
+          <Button 
+            onClick={handleCustomizeChannel}
+            className="absolute top-4 right-4 bg-black bg-opacity-50 hover:bg-opacity-70"
+          >
             <Edit className="h-4 w-4 mr-2" />
             Customize channel
           </Button>
@@ -57,12 +108,17 @@ const Profile = () => {
         {/* Profile Header */}
         <div className="flex items-start gap-6 mb-8">
           <div className="w-32 h-32 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center border-4 border-gray-700">
-            <span className="text-white text-4xl font-bold">JD</span>
+            <User className="text-white text-4xl" size={64} />
           </div>
           <div className="flex-1">
             <div className="flex items-center gap-4 mb-2">
               <h1 className="text-white text-4xl font-bold">John Doe</h1>
-              <Button size="sm" variant="outline" className="text-white border-gray-600 hover:bg-gray-700">
+              <Button 
+                size="sm" 
+                variant="outline" 
+                onClick={handleShare}
+                className="text-white border-gray-600 hover:bg-gray-700"
+              >
                 <Share className="h-4 w-4 mr-2" />
                 Share
               </Button>
@@ -80,10 +136,17 @@ const Profile = () => {
               web development, and my journey in tech!
             </p>
             <div className="flex gap-3">
-              <Button className="bg-red-600 hover:bg-red-700">
+              <Button 
+                onClick={handleSubscribe}
+                className="bg-red-600 hover:bg-red-700"
+              >
                 Subscribe
               </Button>
-              <Button variant="outline" className="text-white border-gray-600 hover:bg-gray-700">
+              <Button 
+                variant="outline" 
+                onClick={handleJoin}
+                className="text-white border-gray-600 hover:bg-gray-700"
+              >
                 Join
               </Button>
             </div>
@@ -151,7 +214,11 @@ const Profile = () => {
           <TabsContent value="videos" className="mt-6">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-white text-xl font-semibold">Uploads</h3>
-              <Button variant="outline" className="text-white border-gray-600 hover:bg-gray-700">
+              <Button 
+                variant="outline" 
+                onClick={handleSortBy}
+                className="text-white border-gray-600 hover:bg-gray-700"
+              >
                 Sort by
               </Button>
             </div>
@@ -175,7 +242,12 @@ const Profile = () => {
             <div className="text-white text-center py-12">
               <h3 className="text-xl font-semibold mb-2">No playlists yet</h3>
               <p className="text-gray-400 mb-4">Create your first playlist to organize your videos</p>
-              <Button className="bg-red-600 hover:bg-red-700">Create Playlist</Button>
+              <Button 
+                onClick={handleCreatePlaylist}
+                className="bg-red-600 hover:bg-red-700"
+              >
+                Create Playlist
+              </Button>
             </div>
           </TabsContent>
 
@@ -183,7 +255,12 @@ const Profile = () => {
             <div className="text-white text-center py-12">
               <h3 className="text-xl font-semibold mb-2">No community posts yet</h3>
               <p className="text-gray-400 mb-4">Share updates with your subscribers</p>
-              <Button className="bg-red-600 hover:bg-red-700">Create Post</Button>
+              <Button 
+                onClick={handleCreatePost}
+                className="bg-red-600 hover:bg-red-700"
+              >
+                Create Post
+              </Button>
             </div>
           </TabsContent>
 

@@ -8,15 +8,20 @@ import VideoGrid from '@/components/VideoGrid';
 const Index = () => {
   const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   useEffect(() => {
     const query = searchParams.get('search');
     setSearchQuery(query || '');
   }, [searchParams]);
 
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <Layout onSearch={setSearchQuery}>
-      {!searchQuery && <CategoryTabs />}
+      {!searchQuery && <CategoryTabs onCategoryChange={handleCategoryChange} />}
       <div className="p-6">
         {searchQuery && (
           <div className="mb-6">
@@ -24,7 +29,10 @@ const Index = () => {
             <p className="text-gray-400">About {Math.floor(Math.random() * 1000000)} results</p>
           </div>
         )}
-        <VideoGrid searchQuery={searchQuery} />
+        <VideoGrid 
+          category={searchQuery ? 'all' : selectedCategory} 
+          searchQuery={searchQuery} 
+        />
       </div>
     </Layout>
   );
