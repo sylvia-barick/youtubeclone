@@ -97,7 +97,7 @@ const Profile = () => {
         <div 
           className="relative bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg h-48 mb-6"
           style={{ 
-            backgroundImage: 'url(https://i.postimg.cc/XY5YhBTz/a1.png)',
+            backgroundImage: 'url(https://i.postimg.cc/pXV3SDFs/71-ZMi-LBZC6-S-UF1000-1000-QL80.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
@@ -116,7 +116,7 @@ const Profile = () => {
         <div className="flex items-start gap-6 mb-8">
           <div className="w-32 h-32 rounded-full flex items-center justify-center border-4 border-gray-700 overflow-hidden">
             <img 
-              src="https://i.postimg.cc/MZC35QLC/Whats-App-Image-2025-07-05-at-12-35-21.jpg" 
+              src="https://i.postimg.cc/xdcyWdfJ/q-JHcy-Hgm-400x400.jpg" 
               alt="The Power of 3" 
               className="w-full h-full object-cover"
             />
