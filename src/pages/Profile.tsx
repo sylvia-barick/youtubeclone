@@ -13,7 +13,7 @@ const Profile = () => {
       id: 'user1',
       title: 'My First YouTube Video - Channel Introduction',
       thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=640&h=360&fit=crop',
-      channel: 'The Power of 3',
+      channel: 'The Power of 4',
       views: '1.2K views',
       timestamp: '2 days ago',
       duration: '5:23',
@@ -24,7 +24,7 @@ const Profile = () => {
       id: 'user2',
       title: 'Coding Tutorial: Building a React App',
       thumbnail: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=640&h=360&fit=crop',
-      channel: 'The Power of 3',
+      channel: 'The Power of 4',
       views: '856 views',
       timestamp: '1 week ago',
       duration: '28:15',
@@ -35,7 +35,7 @@ const Profile = () => {
       id: 'user3',
       title: 'Daily Vlog: A Day in My Life as a Developer',
       thumbnail: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=640&h=360&fit=crop',
-      channel: 'The Power of 3',
+      channel: 'The Power of 4',
       views: '2.1K views',
       timestamp: '2 weeks ago',
       duration: '12:45',
@@ -61,7 +61,7 @@ const Profile = () => {
   };
 
   const handleSubscribe = () => {
-    alert('Subscribed to The Power of 3!');
+    alert('Subscribed to The Power of 4!');
   };
 
   const handleJoin = () => {
@@ -117,13 +117,13 @@ const Profile = () => {
           <div className="w-32 h-32 rounded-full flex items-center justify-center border-4 border-gray-700 overflow-hidden">
             <img 
               src="https://i.postimg.cc/xdcyWdfJ/q-JHcy-Hgm-400x400.jpg" 
-              alt="The Power of 3" 
+              alt="The Power of 4" 
               className="w-full h-full object-cover"
             />
           </div>
           <div className="flex-1">
             <div className="flex items-center gap-4 mb-2">
-              <h1 className="text-white text-4xl font-bold">The Power of 3</h1>
+              <h1 className="text-white text-4xl font-bold">The Power of 4</h1>
               <Button 
                 size="sm" 
                 variant="outline" 
@@ -135,7 +135,7 @@ const Profile = () => {
               </Button>
             </div>
             <div className="flex items-center gap-4 text-gray-400 mb-3">
-              <span>@Three</span>
+              <span>@Four</span>
               <span>•</span>
               <span>2.5K subscribers</span>
               <span>•</span>
@@ -309,9 +309,9 @@ const Profile = () => {
                 <div className="bg-gray-800 rounded-lg p-6">
                   <h3 className="text-white text-xl font-semibold mb-4">Links</h3>
                   <div className="space-y-2">
-                    <a href="#" className="block text-blue-400 hover:text-blue-300">🌐 The Power of 3.dev</a>
-                    <a href="#" className="block text-blue-400 hover:text-blue-300">🐦 @The Power of 3</a>
-                    <a href="#" className="block text-blue-400 hover:text-blue-300">📷 @The Power of 3</a>
+                    <a href="#" className="block text-blue-400 hover:text-blue-300">🌐 The Power of 4.dev</a>
+                    <a href="#" className="block text-blue-400 hover:text-blue-300">🐦 @The Power of 4</a>
+                    <a href="#" className="block text-blue-400 hover:text-blue-300">📷 @The Power of 4</a>
                     <a href="#" className="block text-blue-400 hover:text-blue-300">💼 LinkedIn</a>
                   </div>
                 </div>
